@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, Check, GraduationCap, Plane } from '@/components/icons'
-import { MediaImage } from '@/components/MediaImage'
+import { ArrowLeft, Check, Plane } from '@/components/icons'
 import { ScholarshipCard } from '@/components/ScholarshipCard'
 import { TripCard } from '@/components/TripCard'
 import { TravelGlobeLogo } from '@/components/TravelGlobeLogo'
@@ -12,84 +11,27 @@ export default async function HomePage() {
     getFeaturedScholarships(),
     getSiteSettings(),
   ])
-  const travelHero = trips[0]
-  const studyHero = scholarships[0]
-
   return (
     <main>
-      <section className="brand-intro">
-        <TravelGlobeLogo variant="hero" />
-        <h1 className="sr-only">الشيخاب للسفر والسياحة</h1>
-        <Link href="#discover" className="brand-intro-action">
-          اكتشف عالمنا
-          <span aria-hidden="true">↓</span>
-        </Link>
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <span className="home-hero-kicker"><Plane className="h-4 w-4" /> رحلتك تبدأ من هنا</span>
+          <h1>العالم أقرب<br /><span>مما تتخيل.</span></h1>
+          <p>رحلات مصممة بعناية، ومنح دراسية موثوقة، وفريق يرافقك في كل خطوة حتى تصل إلى وجهتك.</p>
+          <div className="home-hero-actions">
+            <Link href="/trips" className="home-hero-primary">استكشف الرحلات <ArrowLeft className="h-5 w-5" /></Link>
+            <Link href="/scholarships" className="home-hero-secondary">اكتشف المنح</Link>
+          </div>
+          <div className="home-hero-note"><span>01</span><span>اختر وجهتك، ونحن نهتم بالباقي</span></div>
+        </div>
+        <div className="home-hero-visual">
+          <TravelGlobeLogo variant="hero" />
+          <div className="home-hero-orbit-label">طائرة واحدة<br /><strong>آلاف الوجهات</strong></div>
+        </div>
+        <Link href="#trips" className="home-hero-scroll">مرر لاكتشاف المزيد <span>↓</span></Link>
       </section>
 
-      <section
-        id="discover"
-        className="grid min-h-[92svh] scroll-mt-20 bg-[#071f30] text-white lg:grid-cols-2"
-      >
-        <div className="hero-pane group relative flex min-h-[46svh] items-end overflow-hidden p-7 sm:p-12 lg:min-h-[calc(92svh-5rem)] lg:p-16">
-          <MediaImage
-            media={travelHero?.heroImage}
-            priority
-            className="absolute inset-0 h-full w-full object-cover transition duration-[1.5s] group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#051d2e] via-[#082b3e]/45 to-transparent" />
-          <div className="relative z-10 max-w-xl">
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/15 px-4 py-2 text-xs backdrop-blur">
-              <Plane className="h-4 w-4 text-[#e3c46f]" /> للسفر والسياحة
-            </span>
-            <h2 className="text-4xl font-black leading-[1.35] sm:text-6xl">
-              اكتشف العالم
-              <br />
-              <span className="text-[#e3c46f]">بطريقتك.</span>
-            </h2>
-            <p className="mt-5 max-w-md leading-8 text-slate-200">
-              رحلات مختارة بعناية، تفاصيل واضحة، ودعم يرافقك من الحجز حتى العودة.
-            </p>
-            <Link
-              href="/trips"
-              className="mt-7 inline-flex items-center gap-3 rounded-xl bg-white px-6 py-3.5 font-bold text-[#08263a] transition hover:-translate-y-1"
-            >
-              استكشف الرحلات <ArrowLeft className="h-5 w-5" />
-            </Link>
-          </div>
-          <Plane className="hero-cursor pointer-events-none absolute left-10 top-1/3 h-10 w-10 text-[#e3c46f] opacity-0 transition group-hover:opacity-100" />
-        </div>
-
-        <div className="hero-pane group relative flex min-h-[46svh] items-end overflow-hidden border-white/15 p-7 sm:p-12 lg:min-h-[calc(92svh-5rem)] lg:border-r lg:p-16">
-          <MediaImage
-            media={studyHero?.heroImage}
-            priority
-            className="absolute inset-0 h-full w-full object-cover transition duration-[1.5s] group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071d31] via-[#102b4c]/55 to-transparent" />
-          <div className="relative z-10 max-w-xl">
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/15 px-4 py-2 text-xs backdrop-blur">
-              <GraduationCap className="h-5 w-5 text-[#e3c46f]" /> للمنح والقبولات
-            </span>
-            <h2 className="text-4xl font-black leading-[1.35] sm:text-6xl">
-              ابنِ مستقبلك
-              <br />
-              <span className="text-[#e3c46f]">من اليوم.</span>
-            </h2>
-            <p className="mt-5 max-w-md leading-8 text-slate-200">
-              نبحث معك عن الفرصة الأنسب ونجهّز ملفك خطوة بخطوة حتى التقديم.
-            </p>
-            <Link
-              href="/scholarships"
-              className="mt-7 inline-flex items-center gap-3 rounded-xl bg-[#d6af4b] px-6 py-3.5 font-bold text-[#08263a] transition hover:-translate-y-1"
-            >
-              استكشف المنح <ArrowLeft className="h-5 w-5" />
-            </Link>
-          </div>
-          <GraduationCap className="hero-cursor pointer-events-none absolute left-10 top-1/3 h-11 w-11 text-[#e3c46f] opacity-0 transition group-hover:opacity-100" />
-        </div>
-      </section>
-
-      <section className="bg-[#f6f3eb] py-20 dark:bg-[#071f30]">
+      <section id="trips" className="bg-[#f6f3eb] py-20 dark:bg-[#071f30]">
         <div className="mx-auto max-w-7xl px-5">
           <div className="mx-auto mb-12 max-w-2xl text-center">
             <span className="section-kicker">وجهتك تبدأ هنا</span>

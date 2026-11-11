@@ -1,0 +1,10 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/src/app/(frontend)/trips/page": [
+      "static/media/744885950b1fe0ff-s.p.30d2r2x65bwdm.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}
