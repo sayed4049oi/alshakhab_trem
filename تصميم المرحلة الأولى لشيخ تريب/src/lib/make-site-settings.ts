@@ -1,0 +1,2 @@
+export const makeSiteSettings = { title: '', description: '', language: 'ar', icons: { icon: '' }, openGraph: { image: '' }, analytics: { googleAnalyticsId: '' }, accessibility: { addBypassLinks: false }, customScripts: { headStart: '', headEnd: '', bodyStart: '', bodyEnd: '' }, robots: { index: true } }
+export function sanitizeHtmlAttribute(value?: unknown) { return typeof value === 'string' ? value.replace(/[<>"']/g, '') : '' }

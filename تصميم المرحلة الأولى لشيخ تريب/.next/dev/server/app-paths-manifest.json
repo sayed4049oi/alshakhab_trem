@@ -1,0 +1,6 @@
+{
+  "/(frontend)/login/page": "app/(frontend)/login/page.js",
+  "/(frontend)/page": "app/(frontend)/page.js",
+  "/(frontend)/scholarships/page": "app/(frontend)/scholarships/page.js",
+  "/(frontend)/trips/page": "app/(frontend)/trips/page.js"
+}
